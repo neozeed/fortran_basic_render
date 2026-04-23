@@ -106,12 +106,11 @@ C     V = -V * (MOD(INT(X - U * P) + INT(Z - W * P), 2)) / 2.0+0.3+0.2
 C     Select the dithering pattern in the lookup table
 450   POWER = V ** 0.4
       GC = ABS((COLS - 1) - (INT(((COLS - 1) * 16) * POWER + 
-C     1    LOOKUP(MOD(M,4) + (MOD(N,4) * 4))/3)+1 / 16))
      1    LOOKUP((MOD(M,4) + (MOD(N,4) * 4))+1)/3) / 16))
       RC = SETCOLOR(GC)
-      RC = setpixel(M,SCRY-N)
+      RC = SETPIXEL(M,SCRY-N)
 20    CONTINUE
 10    CONTINUE
       PAUSE
-      rc = setvideomode( $DEFAULTMODE )
+      RC = SETVIDEOMODE( $DEFAULTMODE )
       END
